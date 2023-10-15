@@ -47,18 +47,15 @@ function create_sensor_widget(data) {
 			const modal_description = clone.querySelector('.sensor_description');
 			modal_description.textContent = sensor.description;
 
+			// Min/Max text
 			const modal_inverval = clone.querySelector('.interval');
 			modal_inverval.textContent = "Messurment between: " + sensor.min_interval +
 			"-" + sensor.max_interval + " milliseconds";
 
+			// Min/Max input field
 			const modal_inverval_input = clone.querySelector('.interval_input');
 			modal_inverval_input.setAttribute('min', sensor.min_interval);
 			modal_inverval_input.setAttribute('max', sensor.max_interval);
-
-
-			// const modal_description = clone.querySelector('.modal-body');
-			// modal_description.setAttribute('id', )
-
 			
 			// Füge die bearbeitete Vorlage dem Dokument hinzu
 			document.getElementById("sensor-grid").appendChild(clone);
