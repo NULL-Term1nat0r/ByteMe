@@ -24,7 +24,16 @@ function create_sensor_widget(data) {
 			const template = document.getElementById("sensor-card-template");
 			const clone = document.importNode(template.content, true);
 
-			// Auf das Element mit der Klasse "template-name" in der geklonten Vorlage zugreifen
+			const modal = clone.querySelector('.sensor-modal');
+			modal.setAttribute('id', "Sensor_id_" + sensor.uuid);
+			console.log(modal.id)
+
+			const modal_button = clone.querySelector('.modal-button');
+			modal_button.setAttribute('data-bs-target', "#" + modal.id)
+
+			const modal_description = clone.querySelector('.modal-body');
+			modal_description.setAttribute('id', )
+
 			const heading = clone.querySelector(".card-title");
 
 			heading.textContent = sensor.name;
