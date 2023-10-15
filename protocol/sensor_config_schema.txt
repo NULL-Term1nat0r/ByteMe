@@ -1,0 +1,8 @@
+{
+    "sensors": {
+        "UUID4 of sensor; see https://www.uuidgenerator.net/version4": {
+            "enabled": true,
+            "interval": 1234
+        }
+    }
+}
