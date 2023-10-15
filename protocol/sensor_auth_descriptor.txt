@@ -1,0 +1,23 @@
+SENSOR AUTH DESCRIPTOR
+======================
+
+struct descriptor
+  Offset |     Size | Name        | Type
+       0 |       12 | magic       | byte array (FW_MAGIC)
+      12 |        4 | fw_min      | unsigned integer (32-bit)
+      16 |        4 | hdr_len     | unsigned integer (32-bit)
+      20 |        1 | name_len    | unsigned integer (8-bit)
+      21 |        1 | part_len    | unsigned integer (8-bit)
+      22 |        2 | desc_len    | unsigned integer (16-bit)
+      24 |       16 | uuid        | byte array (GUID)
+      40 |        2 | power_mamps | unsigned integer (16-bit)
+      42 |        1 | num_values  | unsigned integer (8-bit)
+      43 | name_len | name        | byte array (UTF-8)
+       ? | part_len | part        | byte array (UTF-8)
+       ? | desc_len | desc        | byte array (UTF-8)
+       ? |        ? | values      | struct value
+
+struct value
+  Offset |     Size | Name        | Type
+       0 |        1 | name_len    | unsigned integer (8-bit)
+       1 | name_len | name        | byte array (UTF-8)
