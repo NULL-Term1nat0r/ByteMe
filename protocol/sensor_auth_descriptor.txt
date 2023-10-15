@@ -1,6 +1,8 @@
 SENSOR AUTH DESCRIPTOR
 ======================
 
+FW_MAGIC = "ByteMe\xffAudi\x00"
+
 struct descriptor
   Offset |     Size | Name        | Type
        0 |       12 | magic       | byte array (FW_MAGIC)
