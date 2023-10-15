@@ -7,7 +7,7 @@
             "uuid": "Generated UUID4; see https://www.uuidgenerator.net/version4",
 
             // NOTE: Intervals will be in this range (milliseconds)
-            "min_interval": 80,
+            "min_interval": 80, // Lower values lead to undefined behavior
             "max_interval": 2592000000, // 30 days
 
             "values": [
