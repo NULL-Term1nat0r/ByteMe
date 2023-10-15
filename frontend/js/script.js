@@ -27,6 +27,10 @@ function create_sensor_widget(data) {
 			const heading = clone.querySelector(".card-title");
 			heading.textContent = sensor.name;
 
+			// Modellbezeichung
+			const part_name = clone.querySelector(".part_name");
+			part_name.textContent = sensor.part_name
+
 			// Widget
 			const modal = clone.querySelector('.sensor-modal');
 			modal.setAttribute('id', "Sensor_id_" + sensor.uuid);
@@ -41,8 +45,15 @@ function create_sensor_widget(data) {
 
 			// Beschreibungstext
 			const modal_description = clone.querySelector('.sensor_description');
-			modal_description.textContent = sensor.summary;
-			console.log(sensor.summary)
+			modal_description.textContent = sensor.description;
+
+			const modal_inverval = clone.querySelector('.interval');
+			modal_inverval.textContent = "Messurment between: " + sensor.min_interval +
+			"-" + sensor.max_interval + " milliseconds";
+
+			const modal_inverval_input = clone.querySelector('.interval_input');
+			modal_inverval_input.setAttribute('min', sensor.min_interval);
+			modal_inverval_input.setAttribute('max', sensor.max_interval);
 
 
 			// const modal_description = clone.querySelector('.modal-body');
