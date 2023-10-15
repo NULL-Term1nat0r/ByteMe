@@ -1,8 +1,8 @@
 {
 	"sensors": [
         {
-            "name": "Generic name",
-            "part": "Part number",
+            "name": "Generic name (for example: iNEMO IMU)",
+            "part_name": "Part name (for example: LSM6DSOX)",
             "description": "Description of the sensor and part itself",
             "uuid": "Generated UUID4; see https://www.uuidgenerator.net/version4",
 
