@@ -3,11 +3,15 @@ SENSOR AUTH DESCRIPTOR
 
 FW_MAGIC = "ByteMe\xffAudi\x00"
 
+The descriptor is requested in two parts.
+The first three fields (20 bytes) are requested,
+the remaining (total_len - 20) bytes are then requested in chunks of 32.
+
 struct descriptor
   Offset |     Size | Name        | Type
        0 |       12 | magic       | byte array (FW_MAGIC)
       12 |        4 | fw_min      | unsigned integer (32-bit)
-      16 |        4 | hdr_len     | unsigned integer (32-bit)
+      16 |        4 | total_len   | unsigned integer (32-bit)
       20 |        1 | name_len    | unsigned integer (8-bit)
       21 |        1 | part_len    | unsigned integer (8-bit)
       22 |        2 | desc_len    | unsigned integer (16-bit)
