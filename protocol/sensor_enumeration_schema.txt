@@ -1,0 +1,22 @@
+{
+	"sensors": [
+        {
+            "name": "Generic name",
+            "part": "Part number",
+            "description": "Description of the sensor and part itself",
+            "uuid": "Generated UUID4; see https://www.uuidgenerator.net/version4",
+
+            // NOTE: Intervals will be in this range
+            "min_interval": 80,
+            "max_interval": 2592000,
+
+            "values": [
+                {
+                    "name": "Value name"
+                }
+                // other values ...
+            ]
+        }
+        // other sensors ...
+	]
+}
