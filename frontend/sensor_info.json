@@ -29,7 +29,7 @@
 	},
 	{
 	    "name": "Air pressure",
-	    "summary": "",
+	    "summary": "Example stuff",
 	    "uuid": "98b9355a-6adc-11ee-b962-0242ac120002",
 	    "min_interval": 45,
 	    "max_interval": 420,

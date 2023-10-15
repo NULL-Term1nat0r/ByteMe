@@ -19,24 +19,35 @@ function fetchData() {
 
 function create_sensor_widget(data) {
 	if ('sensors' in data) {
-		let widget_count = data.sensors.length
 		for (const sensor of data.sensors) {
 			const template = document.getElementById("sensor-card-template");
 			const clone = document.importNode(template.content, true);
 
+			// Überschrift Sensor Widget
+			const heading = clone.querySelector(".card-title");
+			heading.textContent = sensor.name;
+
+			// Widget
 			const modal = clone.querySelector('.sensor-modal');
 			modal.setAttribute('id', "Sensor_id_" + sensor.uuid);
-			console.log(modal.id)
 
+			// Button um das Widget zu öffnen
 			const modal_button = clone.querySelector('.modal-button');
-			modal_button.setAttribute('data-bs-target', "#" + modal.id)
+			modal_button.setAttribute('data-bs-target', "#" + modal.id);
 
-			const modal_description = clone.querySelector('.modal-body');
-			modal_description.setAttribute('id', )
+			// Überschrift im geöffnetten Widget
+			const modal_title = clone.querySelector('.modal-title');
+			modal_title.textContent = sensor.name;
 
-			const heading = clone.querySelector(".card-title");
+			// Beschreibungstext
+			const modal_description = clone.querySelector('.sensor_description');
+			modal_description.textContent = sensor.summary;
+			console.log(sensor.summary)
 
-			heading.textContent = sensor.name;
+
+			// const modal_description = clone.querySelector('.modal-body');
+			// modal_description.setAttribute('id', )
+
 			
 			// Füge die bearbeitete Vorlage dem Dokument hinzu
 			document.getElementById("sensor-grid").appendChild(clone);
@@ -44,21 +55,5 @@ function create_sensor_widget(data) {
 	}
 	else {
 		console.log("There is no 'sensor' key in the provided data");
-	}
-}
-
-function test_fill() {
-	for (let i = 0; i < 5; i++) {
-		// Vorlage klonen
-		const template = document.getElementById("sensor-card-template");
-		const clone = document.importNode(template.content, true);
-
-		// Auf das Element mit der Klasse "template-name" in der geklonten Vorlage zugreifen
-		const heading = clone.querySelector(".card-title");
-
-		heading.textContent = "WUWUWUWU";
-		
-		// Füge die bearbeitete Vorlage dem Dokument hinzu
-		document.body.appendChild(clone);
 	}
 }
