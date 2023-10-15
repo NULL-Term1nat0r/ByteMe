@@ -28,12 +28,23 @@
 	<!----->
 
   <!--------------data bloc ------------------------------>
+  <div class="position-fixed top-3 end-0 p-1 download-box">
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Download Data </option>
+      <option value="1">CSV</option>
+      <option value="2">JSON</option>
+    </select>
+    <button href="#" class="btn btn-primary" style="margin-left: 15px;">
+        <img src="images/download.svg" width="" height="20" class="d-inline-block align-text-top">
+    </button>  
+</div>
+<br>
 	<main class="container">
     <div class="row" id="sensor-grid" >
-      <!---begining of a single sensor data --->
-      <template id="sensor-card-template">
+      <!---begining of a single sensor data
+      <template id="sensor-card-template">  --->
       <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
-        <div class="card" style="">
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">
               sensor 1
@@ -41,10 +52,12 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
               content.</p>
             <div class="text-center">
-              <button type="button" class="btn btn-primary" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sensor1Modal">
-                Preview
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sensor1Modal">
+                <img src="images/eye.svg" width="" height="20" class="d-inline-block align-text-top">
               </button>
-              <button href="#" class="btn btn-primary" style="margin-left: 15px;">Download</button>
+              <button href="#" class="btn btn-primary" style="margin-left: 15px;">
+                <img src="images/download.svg" width="" height="20" class="d-inline-block align-text-top">
+              </button>
             </div>
           </div>
         </div>
@@ -94,6 +107,7 @@
       <!-- // end of the sensor data-->
     </div>
 	</main>
+
   <!---------------------------------------------->
 
   <!--footer-->
