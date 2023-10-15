@@ -1,0 +1,26 @@
+{
+    "name": "IMU",
+    "part": "SOME-PART-NO",
+    "desc": "Description here",
+    "uuid": "bb620d4e-6adb-11ee-b962-0242ac120002",
+    "values": [
+        {
+            "name": "Acceleration X"
+        },
+        {
+            "name": "Acceleration Y"
+        },
+        {
+            "name": "Acceleration Z"
+        },
+        {
+            "name": "Orientation X"
+        },
+        {
+            "name": "Orientation Y"
+        },
+        {
+            "name": "Orientation Z"
+        }
+    ]
+}
