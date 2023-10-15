@@ -21,6 +21,7 @@
 #endif // FW_WANT_LOG
 
 // Utility macros
+#define __packed __attribute__((packed))
 #define FW_TO_STR_INNER(x) #x
 #define FW_TO_STR(x) FW_TO_STR_INNER(x)
 
