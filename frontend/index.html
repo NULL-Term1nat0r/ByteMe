@@ -24,20 +24,24 @@
   <!------->
 
   <!-- headline -->
-  <h1 class=".fs-1 text text-center mt-5 pt-5">Sensor Modular Unit Overview</h1>
+  <h1 class="fs-1 text text-center mt-5 pt-5">Sensor Modular Unit Overview</h1>
 	<!----->
 
-  <!--------------data bloc ------------------------------>
-  <div class="position-fixed top-3 end-0 p-1 download-box">
-    <select class="form-select" aria-label="Default select example">
-      <option selected>Download Data </option>
+<!-- Download Box (Top-Middle Using Bootstrap) -->
+<div class="text-center p-2 download-box">
+  <p class="fs-5 mb-0">Download Data From Sensor</p>
+  <center>
+  <select class="form-select form-select-sm" aria-label="Download Data Format" style="width: 150px; height: 30px;">
+      <option selected>Select Format</option>
       <option value="1">CSV</option>
-      <option value="2">JSON</option>
-    </select>
-    <button href="#" class="btn btn-primary" style="margin-left: 15px;">
-        <img src="images/download.svg" width="" height="20" class="d-inline-block align-text-top">
-    </button>  
+      <option value="1">JSON</option>
+  </select>
+</center>
+  <button class="btn btn-primary btn-sm" style="margin-left: 15px;">
+      <img src="images/download.svg" alt="Download" style="width: 20px; height: 20px;">
+  </button>
 </div>
+
 <br>
 	<main class="container">
     <div class="row" id="sensor-grid" >
