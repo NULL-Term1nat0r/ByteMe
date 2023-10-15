@@ -8,7 +8,7 @@
 
             // NOTE: Intervals will be in this range
             "min_interval": 80,
-            "max_interval": 2592000,
+            "max_interval": 2592000000,
 
             "values": [
                 {
