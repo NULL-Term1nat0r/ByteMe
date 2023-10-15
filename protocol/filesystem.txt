@@ -1,0 +1,16 @@
+FILESYSTEM
+==========
+
+FW_MAGIC = "ByteMe\xffAudi\x00"
+
+struct superblock
+  Offset | Size | Name      | Type
+       0 |   12 | magic     | byte array (FW_MAGIC)
+      12 |    4 | fw_last   | unsigned integer (32-bit)
+      16 |    8 | blk_count | unsigned integer (64-bit)
+      24 |  488 | reserved  | ignored
+
+NOTE: Logical block size will always be 512 byte
+      Superblock is on block #0
+
+TODO: Consider backing up the superblock to block #n-1
