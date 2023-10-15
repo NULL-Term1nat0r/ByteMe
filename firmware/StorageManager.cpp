@@ -3,8 +3,8 @@
 
 struct __packed Superblock {
   char     magic[sizeof(FW_MAGIC)];
-  uint32_t fw_rev;
-  uint64_t blk_count;
+  uint32_t fwRev;
+  uint64_t blkCount;
   char     reserved[488];
 };
 
