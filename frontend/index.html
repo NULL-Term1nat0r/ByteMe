@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audi Sport</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/style.css"> 
+  </head>
+  <body>
+  <!-- header -->
+  <header>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid" >
+        <a class="navbar-brand" href="#">
+          <img src="images/logo-audi-sport.png" alt="Logo" width="" height="50" class="d-inline-block align-text-top">
+        </a>
+        <a class="navbar-brand" href="login.html">Logout
+          <img src="images/logout.svg" width="" height="20" class="d-inline-block align-text-top">
+        </a>
+      </div>
+    </nav>
+  </header>
+  <!------->
+
+  <!-- headline -->
+  <h1 class=".fs-1 text text-center mt-5 pt-5">Sensor Modular Unit Overview</h1>
+	<!----->
+
+  <!--------------data bloc ------------------------------>
+	<main class="container">
+    <div class="row" id="sensor-grid" >
+      <!---begining of a single sensor data --->
+      <template id="sensor-card-template">
+      <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
+        <div class="card" style="">
+          <div class="card-body">
+            <h5 class="card-title">
+              sensor 1
+            </h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sensor1Modal">
+                Preview
+              </button>
+              <button href="#" class="btn btn-primary" style="margin-left: 15px;">Download</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="sensor1Modal" tabindex="-1" aria-labelledby="sensor1ModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="sensor1ModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!--data preview here -->
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas officiis autem deleniti repellat! Voluptatem vel unde perspiciatis sequi fuga possimus corporis obcaecati laborum culpa, dolorem rem placeat, sunt veritatis. Accusamus?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas officiis autem deleniti repellat! Voluptatem vel unde perspiciatis sequi fuga possimus corporis obcaecati laborum culpa, dolorem rem placeat, sunt veritatis. Accusamus?</p>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+                  <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+                  <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputCity" class="form-label">Input Data</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <br>
+                <button type="button" class="btn btn-success">Send Data</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </template>
+  
+      <!-- // end of the sensor data-->
+    </div>
+	</main>
+  <!---------------------------------------------->
+
+  <!--footer-->
+  <footer class="fixed-bottom">
+    <nav class="bg-body-tertiary" style="height:60px; margin-top: 15px">
+      <div class="container">
+        <div class=".fs-1 text text-center pt-3"> Audi RealKreathon - ©2023</div>
+      </div>
+    </nav>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </footer>
+  <!------->
+  </body>
+</html>
