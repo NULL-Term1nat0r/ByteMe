@@ -29,7 +29,59 @@
 	    ]
 	},
 	{
-	    "name": "Air pressure",
+	    "name": "GPS (soon)",
+	    "description": "Raspberry Pi Pico",
+		"part_name": "RP 2040",
+	    "uuid": "98b9355a-6adc-11ee-b962-0242ac120002",
+	    "min_interval": 45,
+	    "max_interval": 420,
+	    "values": [
+		{
+		    "name": "Air pressure"
+		}
+	    ]
+	},
+	{
+	    "name": "Proximity (soon)",
+	    "description": "Raspberry Pi Pico",
+		"part_name": "RP 2040",
+	    "uuid": "98b9355a-6adc-11ee-b962-0242ac120002",
+	    "min_interval": 45,
+	    "max_interval": 420,
+	    "values": [
+		{
+		    "name": "Air pressure"
+		}
+	    ]
+	},
+	{
+	    "name": "Motion (soon)",
+	    "description": "Raspberry Pi Pico",
+		"part_name": "RP 2040",
+	    "uuid": "98b9355a-6adc-11ee-b962-0242ac120002",
+	    "min_interval": 45,
+	    "max_interval": 420,
+	    "values": [
+		{
+		    "name": "Air pressure"
+		}
+	    ]
+	},
+	{
+	    "name": "Linetracking (soon)",
+	    "description": "Raspberry Pi Pico",
+		"part_name": "RP 2040",
+	    "uuid": "98b9355a-6adc-11ee-b962-0242ac120002",
+	    "min_interval": 45,
+	    "max_interval": 420,
+	    "values": [
+		{
+		    "name": "Air pressure"
+		}
+	    ]
+	},
+	{
+	    "name": "Temperature (soon)",
 	    "description": "Raspberry Pi Pico",
 		"part_name": "RP 2040",
 	    "uuid": "98b9355a-6adc-11ee-b962-0242ac120002",
