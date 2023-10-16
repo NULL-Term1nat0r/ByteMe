@@ -2,6 +2,7 @@
 #include "StorageManager.hpp"
 #include "DeviceManager.hpp"
 #include "APManager.hpp"
+#include <Arduino_LSM6DS3.h>
 
 // Libraries used:
 // - https://github.com/khoih-prog/WiFiWebServer (MIT license)
@@ -11,6 +12,11 @@
 static StorageManager g_storageManager;
 static DeviceManager  g_deviceManager;
 static APManager      g_apManager;
+
+// See comment in "Prelude.hpp"
+IMUSample     g_imuSampleBuf[FW_PRES_IMU_CAP];
+size_t        g_imuSampleIdx = 0;
+unsigned long g_imuLastSample;
 
 void setup() {
   // Wait for serial connection when in a debug build
@@ -31,8 +37,28 @@ void setup() {
   if (!g_apManager.setup()) {
     Utility::panic("Unable to setup AP manager");
   }
+
+  // PRESENTATION: Initialize IMU driver
+  if (!IMU.begin()) {
+    Utility::panic("Unable to initialize IMU driver");
+  }
+  g_imuLastSample = millis();
+
+  FW_LOG_PRINT("Initialized.");
 }
 
 void loop() {
+  auto currentTime = millis();
+  if (currentTime - g_imuLastSample > 2000) {
+    auto &sample = g_imuSampleBuf[g_imuSampleIdx++];
+    if (g_imuSampleIdx >= FW_PRES_IMU_CAP) {
+      // good for now
+      g_imuSampleIdx = 0;
+    }
+    IMU.readAcceleration(sample.accelX, sample.accelY, sample.accelZ);
+    IMU.readGyroscope(sample.gyroX, sample.gyroY, sample.gyroZ);
+    g_imuLastSample = currentTime;
+  }
+
   g_apManager.poll();
 }

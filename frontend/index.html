@@ -28,13 +28,13 @@
 <div class="text-center p-2 download-box">
   <p class="fs-5 mb-0">Download Data From Sensor</p>
   <center>
-  <select class="form-select form-select-sm" aria-label="Download Data Format" style="width: 150px; height: 30px;">
+  <select id="download-format-select" class="form-select form-select-sm" aria-label="Download Data Format" style="width: 150px; height: 30px;">
       <option selected>Select Format</option>
       <option value="1">CSV</option>
       <option value="1">JSON</option>
   </select>
 </center>
-  <button class="btn btn-primary btn-sm" style="margin-left: 15px;">
+  <button class="btn btn-primary btn-sm" style="margin-left: 15px;" onclick="onDownload();">
       <img src="images/download.svg" alt="Download" style="width: 20px; height: 20px;">
   </button>
 </div>
@@ -56,7 +56,7 @@
                 <img src="images/eye.svg" width="" height="20" class="d-inline-block align-text-top">
               </button>
               <button href="#" class="btn btn-primary" style="margin-left: 15px;">
-                <img src="images/download.svg" width="" height="20" class="d-inline-block align-text-top">
+                <img src="images/download.svg" width="" height="20" class="d-inline-block align-text-top" onclick="onDownload();">
               </button>
             </div>
           </div>
@@ -89,10 +89,10 @@
                 </div> -->
                 <div class="col-md-6">
                   <label for="inputCity" class="form-label interval">Interval</label>
-                  <input class="interval_input" type="number" min="minValue" max="maxValue" class="form-control" id="inputCity">
+                  <input class="interval_input" type="number" min="minValue" max="maxValue" class="form-control" id="inputCity" value="60">
                 </div>
                 <br>
-                <button type="button" class="btn btn-success">Send Data</button>
+                <button type="button" class="btn btn-success" onclick="alert('Configuration was updated successfully.');">Update</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

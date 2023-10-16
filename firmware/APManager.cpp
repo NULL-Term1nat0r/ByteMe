@@ -24,11 +24,28 @@ bool APManager::setup() {
   // Add routes for static resources
   for (size_t index = 0; g_staticResources[index] != nullptr; index++) {
     auto resource = g_staticResources[index];
+    if (strcmp(resource->path, "/index.html") == 0) {
+      // HACK: Default page would 404 otherwise
+      m_server.on("/", [this, resource]()
+      { 
+        // HACK: Cache for 12h to circumvent visible loading time
+        m_server.sendHeader("Cache-Control", "max-age=43200");
+        m_server.send(200, resource->mime, (const char *)resource->data, resource->size);
+      });
+    }
     m_server.on(resource->path, [this, resource]()
     {
+      // HACK: Cache for 12h to circumvent visible loading time
+      m_server.sendHeader("Cache-Control", "max-age=43200");
       m_server.send(200, resource->mime, (const char *)resource->data, resource->size);
     });
   }
+
+  // PRESENTATION: Send the raw sample buffer
+  m_server.on("/pres_get_imu_samples", [this]()
+  {
+    m_server.send(200, "application/octet-stream", (const char *)g_imuSampleBuf, g_imuSampleIdx * sizeof(IMUSample));
+  });
 
   // Start the server
   m_server.begin();

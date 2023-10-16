@@ -33,3 +33,15 @@ namespace Utility {
     asm volatile ("wfi");
   }
 };
+
+// PRESENTATION: IMU sampling to SRAM; reasons:
+//               - Flash won't work with RP2040 Connect
+//               - SD card not available
+struct IMUSample {
+  float accelX, accelY, accelZ;
+  float gyroX, gyroY, gyroZ;
+};
+#define FW_PRES_IMU_CAP 8000
+extern IMUSample     g_imuSampleBuf[FW_PRES_IMU_CAP];
+extern size_t        g_imuSampleIdx;
+extern unsigned long g_imuLastSample;

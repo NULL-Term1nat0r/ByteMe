@@ -65,3 +65,70 @@ function create_sensor_widget(data) {
 		console.log("There is no 'sensor' key in the provided data");
 	}
 }
+
+function download(filename, text) {
+	const fileBlob = new Blob([text], { type: 'application/octet-binary' })
+	const url = URL.createObjectURL(fileBlob)
+  
+	const link = document.createElement('a')
+	link.setAttribute('href', url)
+	link.setAttribute('download', filename)
+  
+	if (document.createEvent) {
+	  const event = document.createEvent('MouseEvents')
+	  event.initEvent('click', true, true)
+	  link.dispatchEvent(event)
+	} else {
+	  link.click()
+	}
+  
+	// Deallocate resources
+	if (URL.revokeObjectURL)
+	  URL.revokeObjectURL(url)
+  }
+
+function makeCsv(values) {
+	let result = '';
+	for (const arr of values) {
+		for (let i = 0; i < arr.length; i++) {
+			result += arr[i].toString();
+			if (i != arr.length - 1) {
+				result += ',';
+			} else {
+				result += '\n';
+			}
+		}
+	}
+	return result;
+}
+
+function onDownload() {
+	fetch('/pres_get_imu_samples')
+		.then(response => response.arrayBuffer())
+		.then(arrayBuffer => {
+			let view = new DataView(arrayBuffer);
+			let result = [];
+			for (let offset = 0; offset < view.byteLength; offset += 24) {
+				result.push([
+					view.getFloat32(offset, true),
+					view.getFloat32(offset +  4, true),
+					view.getFloat32(offset +  8, true),
+					view.getFloat32(offset + 12, true),
+					view.getFloat32(offset + 16, true),
+					view.getFloat32(offset + 20, true),
+				]);
+			}
+			const fmtSel = document.getElementById('download-format-select');
+			switch (fmtSel.selectedIndex) {
+				case 0:
+					alert('Please select a format first.');
+					break;
+				case 1:
+					download('data.csv', makeCsv(result));
+					break;
+				case 2:
+					download('data.json', JSON.stringify(result));
+					break;
+			}
+		})
+}

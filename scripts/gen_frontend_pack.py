@@ -4,8 +4,9 @@ import os
 import os.path as path
 from hashlib import sha1
 
+# HACK: Allow static sensor_info
 BASE_PATH     = 'frontend'
-IGNORED_NAMES = ['.DS_Store', 'sensor_info.json']
+IGNORED_NAMES = ['.DS_Store']
 MIME_TYPES    = {
     '.html': 'text/html',
     '.css':  'text/css',
