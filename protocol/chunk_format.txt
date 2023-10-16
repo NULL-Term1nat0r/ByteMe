@@ -1,0 +1,23 @@
+CHUNK FORMAT
+============
+
+CHUNK_TYPE_SET_TIME    = 0
+CHUNK_TYPE_SENSOR_DATA = 1
+
+struct chunk_header
+  Offset | Size | Name        | Type
+       0 |    2 | chunk_type  | unsigned integer (16-bit)
+       2 |    2 | length      | unsigned integer (16-bit)
+
+struct chunk_type0 (CHUNK_TYPE_SET_TIME)
+  Offset | Size | Name        | Type
+       0 |    4 | header      | struct chunk_header
+       4 |    8 | abs_time    | unsigned 64-bit UNIX timestamp in milliseconds
+
+struct chunk_type1 (CHUNK_TYPE_SENSOR_DATA)
+  Offset | Size | Name        | Type
+       0 |    4 | header      | struct chunk_header
+       4 |    8 | rel_time    | unsigned 64-bit offset from the last CHUNK_TYPE_SET_TIME,
+                                or 0 if there is none; in milliseconds
+      12 |   16 | sensor_uuid | byte array (UUID4)
+      28 |    ? | values      | structure of values defined by sensor
