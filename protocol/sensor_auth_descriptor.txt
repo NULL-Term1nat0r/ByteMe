@@ -15,7 +15,7 @@ struct descriptor
       20 |        1 | name_len    | unsigned integer (8-bit)
       21 |        1 | part_len    | unsigned integer (8-bit)
       22 |        2 | desc_len    | unsigned integer (16-bit)
-      24 |       16 | uuid        | byte array (GUID)
+      24 |       16 | uuid        | byte array (UUID4)
       40 |        2 | power_mamps | unsigned integer (16-bit)
       42 |        1 | num_values  | unsigned integer (8-bit)
       43 | name_len | name        | byte array (UTF-8)
